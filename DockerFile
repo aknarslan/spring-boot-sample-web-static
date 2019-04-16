@@ -1,0 +1,7 @@
+FROM java:8
+EXPOSE 9000
+ADD /target/SampleWebStaticApplication.jar SampleWebStaticApplication.jar
+ENTRYPOINT ["java", "-jar", "SampleWebStaticApplication.jar"]
+
+FROM haproxy:1.5
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
